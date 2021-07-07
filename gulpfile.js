@@ -39,8 +39,8 @@ function build_lib_sourcemap(){
     output: {
         filename:'oidc-client.js',
         libraryTarget:'umd',
-        // Workaround for https://github.com/webpack/webpack/issues/6642
-        globalObject: 'this'
+        // Workaround for https://github.com/rwth-acis/openidconnect-signin/issues/22
+        globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
     plugins: [],
     devtool:'inline-source-map'
@@ -57,8 +57,8 @@ function build_lib_rsa_sourcemap(){
     output: {
         filename:'oidc-client.rsa256.js',
         libraryTarget:'umd',
-        // Workaround for https://github.com/webpack/webpack/issues/6642
-        globalObject: 'this'
+        // Workaround for https://github.com/rwth-acis/openidconnect-signin/issues/22
+        globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
     plugins: [swapCryptoWithRSAImpl],
     devtool:'inline-source-map'
@@ -75,8 +75,8 @@ function build_lib_min(){
     output: {
         filename:'oidc-client.min.js',
         libraryTarget:'umd',
-        // Workaround for https://github.com/webpack/webpack/issues/6642
-        globalObject: 'this'
+        // Workaround for https://github.com/rwth-acis/openidconnect-signin/issues/22
+        globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
     plugins: [],
     devtool: false,
@@ -94,8 +94,8 @@ function build_lib_rsa_min(){
     output: {
         filename:'oidc-client.rsa256.min.js',
         libraryTarget:'umd',
-        // Workaround for https://github.com/webpack/webpack/issues/6642
-        globalObject: 'this'
+        // Workaround for https://github.com/rwth-acis/openidconnect-signin/issues/22
+        globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
     plugins: [swapCryptoWithRSAImpl],
     devtool: false,
